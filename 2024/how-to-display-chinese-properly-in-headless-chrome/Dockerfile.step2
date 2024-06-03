@@ -1,0 +1,8 @@
+FROM chromedp/headless-shell:latest
+
+ADD fonts/* /usr/share/fonts/
+
+EXPOSE 9222
+ENV LANG en-US.UTF-8
+ENV PATH /headless-shell:$PATH
+ENTRYPOINT [ "/headless-shell/headless-shell", "--no-sandbox", "--use-gl=angle", "--use-angle=swiftshader", "--remote-debugging-address=0.0.0.0", "--remote-debugging-port=9222" ]
